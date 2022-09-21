@@ -1,0 +1,8 @@
+ .game {
+    display: inline-block;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 400px;
+
+}
+   

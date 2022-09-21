@@ -1,0 +1,104 @@
+button {
+    color: white;
+    background-color:hsl(206, 64%, 60%) ;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    border-color:white;
+    border-radius: 5px;
+    padding: 0.75em;
+   
+}
+button:hover{
+    cursor: pointer;
+    background-color: hsl(206, 64%, 20%) 
+}
+ button:focus{
+    outline: none;
+ }
+
+ .aussie{
+    width: 25%;
+    margin: auto;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 5px;
+    box-shadow: 0px 3px 3px 0px;
+
+ }
+ .pic {
+    background-image:url("https://upload.wikimedia.org/wikipedia/commons/7/77/Blue_Merle_Miniature_American_Shepherd_in_Grass.jpg");
+    width: 100%;
+    padding-bottom: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top-left-radius:  5px;
+    border-top-right-radius: 5px;
+
+    
+ }
+
+ .top{
+    background-color: hsl(55, 75%, 49%);
+    font-weight: bold;
+    font-size: 18px;
+    padding: 15px ;
+    border: 2px;
+  
+ }
+
+ .bottom{
+    background-color: hsl(55, 75%, 49%);
+    padding: 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+ }
+
+ .boxes{ 
+   padding: 15px;
+   display: flex;
+   justify-content: space-around;
+ }
+.Box{
+   width: 300px;
+   height: 300px;
+   position: relative;
+   border-radius: 5px;
+   background-color: orange;
+   border:5px solid orange;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   overflow: hidden;
+}
+.backpic{
+   height: 100%;
+   width: 100%;
+   background-position: center;
+   background-size: cover;
+   border-radius: 5px;
+}
+.words{
+   font-size: 20px;
+   color: azure;
+   background-color: rgba(0, 0, 0, 0.8);
+   text-align: center;
+   transition: top 1s;
+   height: 100%;
+   width: 100%;
+   top: 1000px;
+   position: absolute;
+   justify-content: center;
+   border-radius: 5px;
+
+}
+
+.gif1{
+   background-image: url(https://media.giphy.com/media/b8RfbQFaOs1rO10ren/giphy.gif);
+}
+.gif2{
+   background-image: url(https://media.giphy.com/media/kwCLw42hH2cxvIywIi/giphy.gif);
+}
+.gif3{
+   background-image: url(https://media.giphy.com/media/l1AsyjZ8XLd1V7pUk/giphy.gif);
+}
+ 
+.Box:hover .words{
+   top: 0;
+}
