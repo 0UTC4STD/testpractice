@@ -1,7 +1,6 @@
 
 
     let currPlayer = 1;
-    let endGame = false;
     let board;
     let row= 7;
     let column= 7;
@@ -37,9 +36,6 @@
     
 
     function dropPiece() {
-        if(endGame){
-            return;
-        }
     let coordinate = this.id.split(',');
     let x =parseInt(coordinate[0]);
     let y= parseInt(coordinate[1]);
@@ -60,4 +56,42 @@
 
         y -= 1;
         yBottom[x]=y;
+
+        if (checkForWin()) {
+         return endGame(`Player ${currPlayer} won!`);
+         } 
     }
+        // Will post the alert of which player one and resets the board
+    function endGame(msg) {
+        alert(msg);
+        location.reload()
+      }
+    //   Checks if there are any 4 in a row in the same color in any direction 
+    function checkForWin() {
+        function _win(cells) {
+          
+          return cells.every(
+            ([y, x]) =>
+              y >= 0 &&
+              y < column &&
+              x >= 0 &&
+              x < row &&
+              board[y][x] === currPlayer
+          );
+        }
+
+        for (let y = 0; y < column; y++) {
+          for (let x = 0; x < row; x++) {
+            const horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
+            const vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
+            const diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
+            const diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
+      
+            if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
+              return true;
+            }
+          }
+        }
+      }
+
+    
