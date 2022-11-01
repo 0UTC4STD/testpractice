@@ -1,0 +1,9 @@
+1. Hypertext Transfer Protocol 
+2. Uniform Resource Locator 
+3. Domain Name System
+4. Query String allows you to pass key-values into a URL
+5. Get- get data from a server, Post- send data to a server
+6. An HTTP request allows a client to access a server
+7. An HTTP response is a response from a server to a client
+8. A HTTP header provides info about a request or response
+9. If you type a URL into a browser the browser gets the IP using the DNS, then sends a request to the server, to which the server sends a response, then loads the DOM
