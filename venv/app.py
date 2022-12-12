@@ -1,56 +1,31 @@
-from flask import Flask, request
-from operations import add, sub, mult, div
+from flask import Flask, request, render_template
+from flask_debugtoolbar import DebugToolbarExtension
+from stories import story
 
 app = Flask(__name__)
+app.debug = True
 
-@app.route('/welcome')
-def welcome():
-    return "welcome"
+app.config['SECRET_KEY']="dankmeme"
+toolbar = DebugToolbarExtension(app)
 
-@app.route('/welcome/back')
-def welcome_back():
-    return "welcome back"
+@app.route('/')
+def ask_questions():
 
-@app.route('/welcome/home')
-def welcome_home():
-    return "welcome home"
+    prompts = story.prompts
 
-@app.route("/add")
-def do_add():
-    """Add a and b parameters."""
+    return render_template("index.html", prompts=prompts)    
+    
+@app.route("/search")
+def search():
+    """Handle GET requests like /search?term=fun"""
 
-    a = int(request.args.get("a"))
-    b = int(request.args.get("b"))
-    result = add(a, b)
+    term = request.args["term"]
+    return f"<h1>Searching for {term}</h1>"
 
-    return str(result)
+@app.route("/story")
+def show_story():
+    """Show story result."""
 
-@app.route("/sub")
-def do_sub():
-    """Subtract and b parameters."""
+    text = story.generate(request.args)
 
-    a = int(request.args.get("a"))
-    b = int(request.args.get("b"))
-    result = sub(a, b)
-
-    return str(result)
-
-@app.route("/mult")
-def do_mult():
-    """Multiply a and b parameters."""
-
-    a = int(request.args.get("a"))
-    b = int(request.args.get("b"))
-    result = mult(a, b)
-
-    return str(result)
-
-@app.route("/div")
-def do_div():
-    """Divide a and b parameters."""
-
-    a = int(request.args.get("a"))
-    b = int(request.args.get("b"))
-    result = div(a, b)
-
-    return str(result)
+    return render_template("story.html", text=text)
